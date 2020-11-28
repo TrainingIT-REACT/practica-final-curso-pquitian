@@ -1,35 +1,33 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+// Contexts
+import { DataProvider } from './contexts/Data';
+
+// Views
+import Albums from './views/Albums';
+import Home from './views/Home';
+import NotFound from './views/NotFound';
+import Album from './views/Album';
 
 // Css
 import './App.css';
 
 const App = (props) => {
-  const [loading, setLoading] = useState(true);
-  const [albums, setAlbums] = useState([]);
 
-  useEffect(async () => {
-    try {
-      const res = await fetch('/albums');
-      const json = await res.json();
-      setLoading(false);
-      setAlbums(json);
-    } catch(err) {
-      console.error("Error accediendo al servidor", err);
-    }
-  }, false);
-
-  
   return (
-    <div className="App">
-      <h1>¡Hola!</h1>
-      <h2>Álbumes disponibles</h2>
-        { loading ?
-          <p>Cargando...</p>
-          : <ul>
-            {albums.map(album => <li key={album.id}>{album.name}</li>)}
-          </ul>
-        }
-    </div>
+    <DataProvider>
+    <Router>
+      <div className="App">
+        <Switch>
+          <Route path="/" exact component={Home}></Route>
+          <Route path="/albumes" exact component={Albums}></Route>
+          <Route path="/album/:id" component={Album}></Route>
+          <Route component={NotFound}></Route>
+        </Switch>
+      </div>
+    </Router>
+    </DataProvider>
   );
 
 };
