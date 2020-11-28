@@ -1,21 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { Link } from "react-router-dom";
+
+// Context
+import { DataContext } from '../contexts/Data';
 
 
 const Home = () => {
-    const [loading, setLoading] = useState(true);
-    const [albums, setAlbums] = useState([]);
 
-    useEffect(async () => {
-        try {
-        const res = await fetch('/albums');
-        const json = await res.json();
-        setLoading(false);
-        setAlbums(json);
-        } catch(err) {
-        console.error("Error accediendo al servidor", err);
-        }
-    }, false);
+    const context = useContext(DataContext);
+    const { albums } = context;
+    const loading = false;
 
     return (
         <>
@@ -24,7 +18,11 @@ const Home = () => {
         { loading ?
             <p>Cargando...</p>
             : <ul>
-            {albums.map(album => <li key={album.id}>{album.name}</li>)}
+            {albums.map(album => 
+                <li key={album.id}>
+                    <a href={`/album/${album.id}`}>{album.name}</a>
+                </li>)
+            }
             </ul>
         }
         <Link to="/albumes">Ver todos los álbumes</Link>
