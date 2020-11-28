@@ -7,7 +7,7 @@ const DataProvider = ({ children }) => {
     const [albums, setAlbums] = useState([]);
     // const [songs, setSongs] = useState([]);
 
-    useEffect(async () => {
+    const getData = async () => {
         try {
           const res = await fetch('/albums');
           const json = await res.json();
@@ -16,7 +16,9 @@ const DataProvider = ({ children }) => {
         } catch(err) {
           console.error("Error accediendo al servidor", err);
         }
-    }, false);
+    } 
+
+    useEffect(() => getData(), []);
 
     return (<DataContext.Provider value={{
         albums
