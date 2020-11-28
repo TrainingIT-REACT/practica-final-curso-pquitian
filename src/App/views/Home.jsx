@@ -7,8 +7,10 @@ import { DataContext } from '../contexts/Data';
 
 const Home = () => {
 
+    // Context
     const context = useContext(DataContext);
     const { albums } = context;
+    
     const loading = false;
 
     return (
