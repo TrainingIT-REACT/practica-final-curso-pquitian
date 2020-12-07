@@ -8,7 +8,7 @@ import { DataProvider } from './contexts/Data';
 import Albums from './views/Albums';
 import Home from './views/Home';
 import NotFound from './views/NotFound';
-import Album from './views/Album';
+import AlbumDetail from './views/AlbumDetail';
 
 // Css
 import './App.css';
@@ -22,7 +22,7 @@ const App = (props) => {
         <Switch>
           <Route path="/" exact component={Home}></Route>
           <Route path="/albumes" exact component={Albums}></Route>
-          <Route path="/album/:id" component={Album}></Route>
+          <Route path="/album/:id" component={AlbumDetail}></Route>
           <Route component={NotFound}></Route>
         </Switch>
       </div>
