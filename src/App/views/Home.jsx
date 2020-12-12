@@ -1,8 +1,11 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useContext, Suspense, lazy } from 'react';
 import { Link } from "react-router-dom";
 
 // Context
 import { DataContext } from '../contexts/Data';
+
+// Components
+const HomeCard = lazy(() => import('../components/HomeCards/HomeCard'));
 
 
 const Home = () => {
@@ -10,24 +13,16 @@ const Home = () => {
     // Context
     const context = useContext(DataContext);
     const { albums } = context;
-    
-    const loading = false;
 
     return (
         <>
         <h1>¡Hola!</h1>
         <h2>Álbumes disponibles</h2>
-        { loading ?
-            <p>Cargando...</p>
-            : <ul>
-            {albums.map(album => 
-                <li key={album.id}>
-                    <a href={`/album/${album.id}`}>{album.name}</a>
-                </li>)
-            }
-            </ul>
-        }
-        <Link to="/albumes">Ver todos los álbumes</Link>
+        <Suspense fallback="cargando...">
+            <HomeCard itemList={albums} pathName="album">
+                <Link to="/albumes">Ver todos los álbumes</Link>
+            </HomeCard>
+        </Suspense> 
         </>
     );
 }
