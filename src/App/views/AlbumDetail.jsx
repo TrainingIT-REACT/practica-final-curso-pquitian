@@ -8,18 +8,22 @@ const AlbumDetail = ({ match }) => {
     // Context
     const context = useContext(DataContext);
     const { albums } = context;
+
+    // States
     const [album, setAlbum] = useState({});
 
     const getAlbumData = (albumId) => {
-        albums.find(album => album.id === albumId);
+        return albums.find(album => album.id === parseInt(albumId));
     }; 
 
-    useEffect(() => setAlbum(getAlbumData()), []);
+    useEffect(() => {
+        setAlbum(getAlbumData(albumId));
+    }, [context]);
 
     return (
         <>
         <h1>Álbum: {albumId}</h1>
-        {albums}
+        { album && album.name }
         </>
     );
 }
