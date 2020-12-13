@@ -1,8 +1,12 @@
-import { createStore } from 'redux';
+import { createStore, applyMiddleware, combineReducers } from 'redux';
+import { createPromise } from 'redux-promise-middleware';
 
 // Reducers
 import user from './reducers/user';
+import albums from './reducers/albums';
+const middleware = applyMiddleware(createPromise());
 
-const store = createStore(user);
-
-export default store;
+export default createStore(
+    combineReducers({ user, albums }),
+    middleware
+    );

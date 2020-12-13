@@ -1,5 +1,9 @@
 const actions = [
+    // User
     "LOG_USER"
+
+    // Albums
+    
 ];
 
 const actionTypes = {};

@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 // Actions
-import { logUser } from '../../actions/user';
+// import { logUser } from '../../actions/user';
 
 const UserProfile = ({ isLogged }) => {
     return (
