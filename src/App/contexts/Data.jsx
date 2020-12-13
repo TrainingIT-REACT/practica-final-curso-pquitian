@@ -13,7 +13,7 @@ const DataProvider = ({ children }) => {
               const res = await fetch('/albums');
               const json = await res.json();
               // setLoading(false);
-              setAlbums(json);
+              setAlbums(json);        
             } catch(err) {
               console.error("Error accediendo al servidor", err);
             }

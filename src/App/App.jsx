@@ -16,8 +16,12 @@ import AlbumDetail from './views/AlbumDetail';
 import UserProfile from './views/UserProfile';
 import Login from './views/Login';
 
-// Other components 
+// Other
+import { ROUTES } from './routes/routes';
 import PrivateRoute  from './components/PrivateRoute';
+
+// Components
+import NavBar from './components/NavBar';
 
 // Css
 import './App.css';
@@ -28,13 +32,14 @@ const App = (props) => {
     <Provider store={store}>
     <DataProvider>
         <Router>
+          <NavBar/>
           <div className="App">
             <Switch>
-              <Route path="/" exact component={Home}/>
-              <Route path="/albumes" exact component={Albums}/>
-              <Route path="/album/:id" component={AlbumDetail}/>
-              <Route path="/login" exact component={Login}/>
-              <PrivateRoute path="/user" component={UserProfile}/>
+              <Route path={ROUTES.HOME} exact component={Home}/>
+              <Route path={ROUTES.ALBUMS} exact component={Albums}/>
+              <Route path={ROUTES.ALBUM_DETAIL} component={AlbumDetail}/>
+              <Route path={ROUTES.LOGIN} exact component={Login}/>
+              <PrivateRoute path={ROUTES.USER_PROFILE} component={UserProfile}/>
               <Route component={NotFound}/>
             </Switch>
           </div>
