@@ -21,6 +21,7 @@ const AlbumListItem = (props) => {
         getSongs();
     }, []);
 
+    // TODO: pasar a AlbumDetail view
     useEffect(() => {
         setTracklist(getAlbumTracklist);
     }, [songs]);
@@ -29,7 +30,7 @@ const AlbumListItem = (props) => {
         <h1>{album.name}</h1>
         <p>{album.artist}</p>
         <img src={album.cover} alt={album.name}/>
-        {tracklist && tracklist.map((song, i) => <p key={i}>{song.name}</p>)}
+        {tracklist && tracklist.map((song, i) => <p key={i}>{song.name}</p>)} 
     </>
 };
 
