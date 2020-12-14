@@ -6,7 +6,7 @@ import { getSongs } from '../../actions/songs';
 import { getAlbums } from '../../actions/albums';
 
 
-const AlbumDetail = (props) => {
+const Album = (props) => {
     const albumId = props.match.params.id;
 
     // Props
@@ -67,4 +67,4 @@ const mapDispatchToProps = (dispatch) => ({
     getAlbums: () => dispatch(getAlbums()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(AlbumDetail);
+export default connect(mapStateToProps, mapDispatchToProps)(Album);

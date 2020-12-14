@@ -12,7 +12,7 @@ import store from '../store';
 import Albums from './views/Albums';
 import Home from './views/Home';
 import NotFound from './views/NotFound';
-import AlbumDetail from './views/AlbumDetail';
+import Album from './views/Album';
 import UserProfile from './views/UserProfile';
 import Login from './views/Login';
 
@@ -37,7 +37,7 @@ const App = (props) => {
             <Switch>
               <Route path={ROUTES.HOME} exact component={Home}/>
               <Route path={ROUTES.ALBUMS} exact component={Albums}/>
-              <Route path={ROUTES.ALBUM_DETAIL} component={AlbumDetail}/>
+              <Route path={ROUTES.ALBUM_DETAIL} component={Album}/>
               <Route path={ROUTES.LOGIN} exact component={Login}/>
               <PrivateRoute path={ROUTES.USER_PROFILE} component={UserProfile}/>
               <Route component={NotFound}/>
