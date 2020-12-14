@@ -4,26 +4,32 @@ import { connect } from 'react-redux';
 // Actions 
 import { getAlbums } from '../../actions/albums'
 
-const Albums = ({ isLoading, error, albums, getAlbums }) => {
+// Components 
+import AlbumsList from '../components/AlbumsList';
+
+const Albums = (props) => {
+    const { isLoading, error, albums, getAlbums } = props;
 
     useEffect(() => {
         getAlbums();
     }, []);
 
     if (isLoading) {
-        return <p>Cargando...</p>
-      } else if (error) {
-        return <p>Hubo un error al obtener los datos :(</p>
-      } else {
-        return <>
-        Hola {JSON.stringify(albums)}
-        </>
-      }
+      return <p>Cargando...</p>
+    } else if (error) {
+      return <p>Hubo un error al obtener los datos :(</p>
+    } else {
+      return <>
+      <AlbumsList albums={albums}/>
+      {isLoading}
+      {error}
+      </>
+    }
 
 }
 
 const mapStateToProps = (state) => ({
-    ...state
+    ...state.albums
 });
 
 const mapDispatchToProps = (dispatch) => ({

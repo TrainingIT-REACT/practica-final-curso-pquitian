@@ -12,7 +12,7 @@ const UserProfile = ({ isLogged }) => {
 
 const mapStateToProps = (state) => {
     return {
-        isLogged: state.isLogged
+        isLogged: state.user.isLogged
     }
 };
 

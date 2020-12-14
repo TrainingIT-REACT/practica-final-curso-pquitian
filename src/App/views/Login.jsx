@@ -22,7 +22,7 @@ const Login = ({ isLogged, logUser, location }) => {
 
 const mapStateToProps = (state) => {
     return {
-        isLogged: state.isLogged
+        isLogged: state.user.isLogged
     }
 };
 

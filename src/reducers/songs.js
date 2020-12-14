@@ -1,26 +1,26 @@
 const initialState = {
     isLoading: true,
-    albums: [],
+    songs: [],
     error: false
 }
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
-        case "ALBUMS_PENDING": 
+        case "SONGS_PENDING": 
             return {
                 ...state,
                 isLoading: true,
-                albums: [],
+                songs: [],
                 error: false
             };
-        case "ALBUMS_FULFILLED":
+        case "SONGS_FULFILLED":
             return {
                 ...state,
                 isLoading: false,
                 error: false,
-                albums: action.payload
+                songs: action.payload
             };
-        case "ALBUM_REJECTED":
+        case "SONGS_REJECTED":
             return {
                 ...state,
                 isLoading: false,
