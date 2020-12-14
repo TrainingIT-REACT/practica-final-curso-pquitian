@@ -1,6 +1,5 @@
 import React, { useEffect, useContext, useState } from 'react';
 import { connect } from 'react-redux';
-// import { bindActionCreators } from 'redux';
 
 // Actions 
 import { getSongs } from '../../actions/songs';
@@ -11,7 +10,9 @@ const AlbumDetail = (props) => {
     const albumId = props.match.params.id;
 
     // Props
-    const { albums, isLoading, getAlbums } = props;
+    const { albums, isLoading } = props.albums;
+    const { songs } = props.songs;
+    const { getAlbums, getSongs } = props;
 
 
     // State
@@ -24,14 +25,28 @@ const AlbumDetail = (props) => {
         });
     };
 
+    const getAlbumTracklist = (songsList) => {
+        return songsList.reduce((arr, currSong) => {
+            if (currSong.album_id === parseInt(albumId)) arr.push(currSong);
+            return arr;
+        }, []); 
+    };
+
     useEffect(() => {
         getAlbums();
+        getSongs();
     }, []);
 
     useEffect(() => {
         const currentAlbum = getCurrentAlbum(albums);
         setAlbum(currentAlbum[0]);
     }, [albums]);
+
+    useEffect(() => {
+        const albumTrackList = getAlbumTracklist(songs);
+        console.log(albumTrackList);
+        setTracklist(albumTrackList);
+    }, [album]);
 
     if (isLoading) {
         return <><p>Cargando...</p>
@@ -41,19 +56,15 @@ const AlbumDetail = (props) => {
         return <>
         <p>{album && album.name}</p>
         <p>{JSON.stringify(album)}</p>
+        <p>{JSON.stringify(tracklist)}</p>
         </>
     }
 };
 
-const mapStateToProps = (state) => ({...state.albums});
+const mapStateToProps = (state) => ({...state});
 const mapDispatchToProps = (dispatch) => ({
-    // getSongs: () => dispatch(getSongs()),
+    getSongs: () => dispatch(getSongs()),
     getAlbums: () => dispatch(getAlbums()),
 });
-/* const mapDispatchToProps = (dispatch) => {
-    return {
-        ...bindActionCreators({getAlbums, getSongs}, dispatch)
-    }
-}; */
 
 export default connect(mapStateToProps, mapDispatchToProps)(AlbumDetail);
