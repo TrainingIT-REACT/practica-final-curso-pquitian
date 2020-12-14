@@ -1,9 +1,12 @@
-import React, { useEffect, useContext, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 
 // Actions 
 import { getSongs } from '../../actions/songs';
 import { getAlbums } from '../../actions/albums';
+
+// Components 
+import AlbumDetail from '../components/AlbumDetail';
 
 
 const Album = (props) => {
@@ -50,14 +53,9 @@ const Album = (props) => {
 
     if (isLoading) {
         return <><p>Cargando...</p>
-            <h1>Álbum: {albumId}</h1>
         </>
     } else {
-        return <>
-        <p>{album && album.name}</p>
-        <p>{JSON.stringify(album)}</p>
-        <p>{JSON.stringify(tracklist)}</p>
-        </>
+        return <AlbumDetail {...{ tracklist, album }}/>
     }
 };
 
