@@ -10,7 +10,7 @@ import { getSongs } from '../../actions/songs'
 import { getAlbums } from '../../actions/albums';
 
 // Components
-const HomeCard = lazy(() => import('../components/HomeCard'));
+const MusicRecommender = lazy(() => import('../components/MusicRecommender'));
 
 
 const Home = (props) => {
@@ -31,9 +31,12 @@ const Home = (props) => {
     } else {
         return <>
         <Header as="h1">¡Hola!</Header>
-        <Header as="h2">Canciones recomendadas</Header>
+        <Header as="h2">
+            Canciones recomendadas
+            <Header.Subheader>Basado en las preferencias del resto de usuarios</Header.Subheader>
+        </Header>
         <Suspense fallback="cargando...">
-            <HomeCard {...{songs, albums}} pathName="album"></HomeCard>
+            <MusicRecommender {...{songs, albums}} pathName="album"></MusicRecommender>
         </Suspense>
         </>
     }
