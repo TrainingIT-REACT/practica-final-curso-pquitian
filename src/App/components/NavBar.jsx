@@ -6,12 +6,11 @@ import { ROUTES } from '../routes/routes';
 const NavBar = () => {
     return <>
         <nav>
-            <ul>
-                <li><NavLink to={ROUTES.HOME}>Inicio</NavLink></li>
-                <li><NavLink to={ROUTES.USER_PROFILE}>Perfil</NavLink></li>
-                <li><NavLink to={ROUTES.ALBUMS}>Álbumes</NavLink></li>
-            </ul>
-        
+            <div class="ui inverted menu">
+                <NavLink to={ROUTES.HOME} className="item" activeClassName="active">Inicio</NavLink>
+                <NavLink to={ROUTES.USER_PROFILE} className="item" activeClassName="active">Perfil</NavLink>
+                <NavLink to={ROUTES.ALBUMS} className="item" activeClassName="active">Álbumes</NavLink>
+            </div>
         </nav>
     </>;
 }

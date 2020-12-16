@@ -1,33 +1,52 @@
-import React, { useContext, Suspense, lazy } from 'react';
-import { Link } from "react-router-dom";
-
-// Context
-import { DataContext } from '../contexts/Data';
+import React, { useEffect, Suspense, lazy } from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { Header } from 'semantic-ui-react';
 
 import { ROUTES } from '../routes/routes';
 
+// AState actions 
+import { getSongs } from '../../actions/songs'
+import { getAlbums } from '../../actions/albums';
+
 // Components
-const HomeCard = lazy(() => import('../components/HomeCards/HomeCard'));
+const HomeCard = lazy(() => import('../components/HomeCard'));
 
 
-const Home = () => {
+const Home = (props) => {
 
-    // Context
-    const context = useContext(DataContext);
-    const { albums } = context;
+    const { error, songs } = props.songs;
+    const { getSongs, getAlbums } = props;
+    const { isLoading, albums } = props.albums;
 
-    return (
-        <>
-        <h1>¡Hola!</h1>
-        <h2>Álbumes disponibles</h2>
+    useEffect(() => {
+        getSongs();
+        getAlbums();
+    }, []);
+
+    if (error) {
+        return <p>Hubo un error al cargar los datos</p>
+    } else if (isLoading) {
+        return <p>Cargando...</p>
+    } else {
+        return <>
+        <Header as="h1">¡Hola!</Header>
+        <Header as="h2">Canciones recomendadas</Header>
         <Suspense fallback="cargando...">
-            <HomeCard itemList={albums} pathName="album">
-                <Link to={ROUTES.ALBUMS}>Ver todos los álbumes</Link>
-            </HomeCard>
-        </Suspense> 
+            <HomeCard {...{songs, albums}} pathName="album"></HomeCard>
+        </Suspense>
         </>
-    );
+    }
+        
 }
-    
 
-export default Home;
+const mapStateToProps = (state) => ({
+    ...state
+});
+
+const mapDispatchToProps = (dispatch) => ({
+    getSongs: () => dispatch(getSongs()),
+    getAlbums: () => dispatch(getAlbums()),
+}); 
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

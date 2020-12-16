@@ -1,15 +1,37 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { Header } from 'semantic-ui-react';
 
 // Components
 import AlbumSong from './AlbumSong';
 
+const formatDuration = (sec) => {
+    if (!sec || sec < 60) return;
+    const minutes = Math.floor(sec / 60);
+    const seconds = sec - minutes * 60;
+
+    const formattedDuration = String(`${minutes}' ${seconds}''`);
+
+    return formattedDuration;
+};
+
 const AlbumDetail = (props) => {
     const { tracklist, album } = props;
+    const [duration, setDuration] = useState(0);
+
+    useEffect(() => {
+        let durationInSec = 0;
+        tracklist.map(song => { 
+            durationInSec = durationInSec + song.seconds;
+            setDuration(durationInSec)
+        })
+    }, [tracklist]);
 
     return <>
-        <h1>{album && album.name}</h1>
-        <p>Artista: {album && album.artist}</p>
-        <p>Canciones:</p>   
+        <Header as='h1'>{album && album.name}</Header>
+        <Header as='h2'>{album && album.artist}</Header>
+        <Header as='h3'>Duración</Header>
+        <p>{formatDuration(duration)}</p>
+        <Header as='h3'>Temas del álbum</Header>   
         {tracklist.map((song, i) => {
             return <AlbumSong key={i} song={song}/>
         })}

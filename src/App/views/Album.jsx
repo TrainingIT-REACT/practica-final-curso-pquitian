@@ -17,10 +17,15 @@ const Album = (props) => {
     const { songs } = props.songs;
     const { getAlbums, getSongs } = props;
 
+    const isLoadingAlbums = props.albums.isLoading;
+    const isLoadingSongs = props.songs.isLoading;
+
 
     // State
     const [tracklist, setTracklist] = useState([]);
     const [album, setAlbum] = useState({});
+
+    const isLoadingData = () => isLoadingAlbums || isLoadingSongs;
 
     const getCurrentAlbum = (albumList) => {
         return albumList.filter(a => { 
@@ -51,7 +56,7 @@ const Album = (props) => {
         setTracklist(albumTrackList);
     }, [album]);
 
-    if (isLoading) {
+    if (isLoadingData()) {
         return <><p>Cargando...</p>
         </>
     } else {
