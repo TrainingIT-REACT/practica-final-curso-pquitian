@@ -8,9 +8,6 @@ const UserProfile = ({ isLogged, name, location}) => {
     return (
         <>
             { feedbackMessage && <FeedbackMessage success message={feedbackMessage}>¡Bienvenide, {name}!</FeedbackMessage> }
-
-
-            
         </>
     );
 };
