@@ -3,11 +3,12 @@ import { connect } from 'react-redux';
 
 import FeedbackMessage from '../components/FeedbackMessage';
 
-const UserProfile = ({ isLogged, name, location}) => {
+const UserProfile = ({ name, location}) => {
     const feedbackMessage = location.state && location.state.feedbackMessage || null;
     return (
         <>
             { feedbackMessage && <FeedbackMessage success message={feedbackMessage}>¡Bienvenide, {name}!</FeedbackMessage> }
+            <p>Tu perfil</p>
         </>
     );
 };
