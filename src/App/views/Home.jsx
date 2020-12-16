@@ -10,8 +10,9 @@ import { getSongs } from '../../actions/songs'
 import { getAlbums } from '../../actions/albums';
 
 // Components
+import Loading from '../components/Loading';
+import FeedbackMessage from '../components/FeedbackMessage';
 const MusicRecommender = lazy(() => import('../components/MusicRecommender'));
-
 
 const Home = (props) => {
 
@@ -24,23 +25,28 @@ const Home = (props) => {
         getAlbums();
     }, []);
 
-    if (error) {
-        return <p>Hubo un error al cargar los datos</p>
-    } else if (isLoading) {
-        return <p>Cargando...</p>
-    } else {
-        return <>
-        <Header as="h1">¡Hola!</Header>
-        <Header as="h2">
-            Canciones recomendadas
-            <Header.Subheader>Basado en las preferencias del resto de usuarios</Header.Subheader>
-        </Header>
-        <Suspense fallback="cargando...">
-            <MusicRecommender {...{songs, albums}} pathName="album"></MusicRecommender>
-        </Suspense>
+    const renderError = () => <FeedbackMessage negative message='Hubo un error al cargar los datos'>Vuelve a intentarlo</FeedbackMessage>;
+    const renderLoader = () => <Loading/>;
+    const renderHomeView = () => (
+        <>
+            <Header as="h1">¡Hola!</Header>
+            <Header as="h2">
+                Canciones recomendadas
+                <Header.Subheader>Basado en las preferencias del resto de usuarios</Header.Subheader>
+            </Header>
+            <Suspense fallback={Loading}>
+                <MusicRecommender {...{songs, albums}} pathName="album"></MusicRecommender>
+            </Suspense>
         </>
+    );
+
+    if (error) {
+       return  renderError(); 
+    } else if (isLoading) {
+        return renderLoader(); 
+    } else {
+        return renderHomeView();
     }
-        
 }
 
 const mapStateToProps = (state) => ({

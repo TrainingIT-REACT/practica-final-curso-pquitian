@@ -7,6 +7,7 @@ import { getAlbums } from '../../actions/albums';
 
 // Components 
 import AlbumDetail from '../components/AlbumDetail';
+import Loading from '../components/Loading';
 
 
 const Album = (props) => {
@@ -57,8 +58,7 @@ const Album = (props) => {
     }, [album]);
 
     if (isLoadingData()) {
-        return <><p>Cargando...</p>
-        </>
+        return <Loading/>
     } else {
         return <AlbumDetail {...{ tracklist, album }}/>
     }
