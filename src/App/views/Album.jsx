@@ -7,6 +7,7 @@ import { getAlbums } from '../../actions/albums';
 
 // Components 
 import AlbumDetail from '../components/AlbumDetail';
+import Loading from '../components/Loading';
 
 
 const Album = (props) => {
@@ -17,10 +18,15 @@ const Album = (props) => {
     const { songs } = props.songs;
     const { getAlbums, getSongs } = props;
 
+    const isLoadingAlbums = props.albums.isLoading;
+    const isLoadingSongs = props.songs.isLoading;
+
 
     // State
     const [tracklist, setTracklist] = useState([]);
     const [album, setAlbum] = useState({});
+
+    const isLoadingData = () => isLoadingAlbums || isLoadingSongs;
 
     const getCurrentAlbum = (albumList) => {
         return albumList.filter(a => { 
@@ -49,11 +55,10 @@ const Album = (props) => {
         const albumTrackList = getAlbumTracklist(songs);
         console.log(albumTrackList);
         setTracklist(albumTrackList);
-    }, [album]);
+    }, [album, songs]);
 
-    if (isLoading) {
-        return <><p>Cargando...</p>
-        </>
+    if (isLoadingData()) {
+        return <Loading/>
     } else {
         return <AlbumDetail {...{ tracklist, album }}/>
     }

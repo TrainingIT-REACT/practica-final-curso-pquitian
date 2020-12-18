@@ -1,18 +1,22 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-// Actions
-// import { logUser } from '../../actions/user';
+import FeedbackMessage from '../components/FeedbackMessage';
 
-const UserProfile = ({ isLogged }) => {
+const UserProfile = ({ name, location}) => {
+    const feedbackMessage = location.state && location.state.feedbackMessage || null;
     return (
-         !isLogged ? <p>No estás logado</p> : <p>Estás logado</p>
+        <>
+            { feedbackMessage && <FeedbackMessage success message={feedbackMessage}>¡Bienvenide, {name}!</FeedbackMessage> }
+            <p>Tu perfil</p>
+        </>
     );
 };
 
 const mapStateToProps = (state) => {
     return {
-        isLogged: state.user.isLogged
+        isLogged: state.user.isLogged,
+        name: state.user.name
     }
 };
 
