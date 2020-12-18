@@ -1,9 +1,6 @@
 import React, { useEffect, Suspense, lazy } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { Header } from 'semantic-ui-react';
-
-import { ROUTES } from '../routes/routes';
 
 // AState actions 
 import { getSongs } from '../../actions/songs'

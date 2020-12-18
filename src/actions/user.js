@@ -1,6 +1,11 @@
 import TYPES from './types';
 
-export const logUser = (user) => ({
+export const logUser = (name) => ({
     type: TYPES.LOG_USER,
-    user
+    name
+});
+
+export const updateListeningHistory = (songsHistory) => ({
+    type: TYPES.UPDATE_USER_HISTORY,
+    songsHistory
 });

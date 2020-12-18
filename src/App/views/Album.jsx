@@ -55,7 +55,7 @@ const Album = (props) => {
         const albumTrackList = getAlbumTracklist(songs);
         console.log(albumTrackList);
         setTracklist(albumTrackList);
-    }, [album]);
+    }, [album, songs]);
 
     if (isLoadingData()) {
         return <Loading/>

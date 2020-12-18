@@ -1,6 +1,7 @@
 const actions = [
     // User
-    "LOG_USER"
+    "LOG_USER",
+    "UPDATE_USER_HISTORY"
 ];
 
 const actionTypes = {};
