@@ -1,20 +1,13 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 
-// Actions 
-import { getAlbums } from '../../actions/albums'
-
 // Components 
 import AlbumsList from '../components/AlbumsList';
 import Loading from '../components/Loading';
 import FeedbackMessage from '../components/FeedbackMessage';
 
 const Albums = (props) => {
-    const { isLoading, error, albums, getAlbums } = props;
-
-    useEffect(() => {
-        getAlbums();
-    }, []);
+    const { isLoading, error, albums } = props;
 
     if (isLoading) {
       return <Loading/>
@@ -34,8 +27,4 @@ const mapStateToProps = (state) => ({
     ...state.albums
 });
 
-const mapDispatchToProps = (dispatch) => ({
-    getAlbums: () => dispatch(getAlbums()),
-}); 
-
-export default connect(mapStateToProps, mapDispatchToProps)(Albums);
+export default connect(mapStateToProps)(Albums);

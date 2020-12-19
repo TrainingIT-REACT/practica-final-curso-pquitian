@@ -1,12 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { Provider } from 'react-redux';
-
-// Contexts
-import { DataProvider } from './contexts/Data';
-
-// Store
-import store from '../store';
 
 // Views
 import Albums from './views/Albums';
@@ -23,31 +18,46 @@ import PrivateRoute  from './components/PrivateRoute';
 // Components
 import NavBar from './components/NavBar';
 
+// Actions 
+import { getSongs } from '../actions/songs';
+import { getAlbums } from '../actions/albums';
+
 // Css
 import './App.css';
 
-const App = (props) => {
+const ReactApp = (props) => {
+
+  const { getAlbums, getSongs } = props;
+
+  useEffect(() => {
+    getAlbums();
+    getSongs();
+  }, []);
 
   return (
-    <Provider store={store}>
-    <DataProvider>
-        <Router>
-          <NavBar/>
-          <div className="App">
-            <Switch>
-              <Route path={ROUTES.HOME} exact component={Home}/>
-              <Route path={ROUTES.ALBUMS} exact component={Albums}/>
-              <Route path={ROUTES.ALBUM_DETAIL} component={Album}/>
-              <Route path={ROUTES.LOGIN} exact component={Login}/>
-              <PrivateRoute path={ROUTES.USER_PROFILE} component={UserProfile}/>
-              <Route component={NotFound}/>
-            </Switch>
-          </div>
-        </Router>
-    </DataProvider>
-    </Provider>
+    
+      <Router>
+        <NavBar/>
+        <div className="App">
+          <Switch>
+            <Route path={ROUTES.HOME} exact component={Home}/>
+            <Route path={ROUTES.ALBUMS} exact component={Albums}/>
+            <Route path={ROUTES.ALBUM_DETAIL} component={Album}/>
+            <Route path={ROUTES.LOGIN} exact component={Login}/>
+            <PrivateRoute path={ROUTES.USER_PROFILE} component={UserProfile}/>
+            <Route component={NotFound}/>
+          </Switch>
+        </div>
+      </Router>
+    
   );
 
 };
 
-export default App;
+const mapStateToProps = (state) => ({...state});
+const mapDispatchToProps = (dispatch) => ({
+    getSongs: () => dispatch(getSongs()),
+    getAlbums: () => dispatch(getAlbums()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ReactApp);

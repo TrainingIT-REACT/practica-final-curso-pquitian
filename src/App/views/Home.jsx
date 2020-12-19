@@ -2,9 +2,6 @@ import React, { useEffect, Suspense, lazy } from 'react';
 import { connect } from 'react-redux';
 import { Header } from 'semantic-ui-react';
 
-// AState actions 
-import { getSongs } from '../../actions/songs'
-import { getAlbums } from '../../actions/albums';
 
 // Components
 import Loading from '../components/Loading';
@@ -14,13 +11,7 @@ const MusicRecommender = lazy(() => import('../components/MusicRecommender'));
 const Home = (props) => {
 
     const { error, songs } = props.songs;
-    const { getSongs, getAlbums } = props;
     const { isLoading, albums } = props.albums;
-
-    useEffect(() => {
-        getSongs();
-        getAlbums();
-    }, []);
 
     const renderError = () => <FeedbackMessage negative message='Hubo un error al cargar los datos'>Vuelve a intentarlo</FeedbackMessage>;
     const renderLoader = () => <Loading/>;
@@ -50,9 +41,4 @@ const mapStateToProps = (state) => ({
     ...state
 });
 
-const mapDispatchToProps = (dispatch) => ({
-    getSongs: () => dispatch(getSongs()),
-    getAlbums: () => dispatch(getAlbums()),
-}); 
-
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(mapStateToProps)(Home);
