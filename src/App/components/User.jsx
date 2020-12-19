@@ -18,7 +18,7 @@ const User = ({ name, songsHistory }) => {
         <>
             <Header as="h1">Tu perfil</Header>
             <Header as="h2">{name}</Header>
-            { songsHistory ? renderLastReproductions() : null}
+            { songsHistory.length ? renderLastReproductions() : null}
         </>
     );
 };

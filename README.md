@@ -24,4 +24,13 @@ Cualquier duda que tengáis sobre la plantilla o el proyecto la podéis resolver
 ## Créditos
 
 * Fotografía de la carátula de los álbums por [James Owen](https://unsplash.com/photos/c-NBiJrhwdM)
+* Photo by [blocks](https://unsplash.com/s/photos/music?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText)
+* Photo by [C D-X](https://unsplash.com/?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText)
+* Photo by [Daniel Schludi](https://unsplash.com/collections/5857062/domo-audio?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText)
+* Photo by [Sašo Tušar](https://unsplash.com/s/photos/music?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText)
+* Photo by [Joshua Fuller](https://unsplash.com/s/photos/music?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText)
+* Photo by [Jacek Dylag](https://unsplash.com/s/photos/music?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText)
+* Photo by [Gianni Scognamiglio](https://unsplash.com/s/photos/music?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText)
+* Photo by [Efe Kurnaz](https://unsplash.com/s/photos/disc-cover?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText)
+* Photo by [Ben Sweet](https://unsplash.com/s/photos/disc-cover?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText)
 * Audio compuesto por [Kevin MacLeod](https://twitter.com/kmacleod)
