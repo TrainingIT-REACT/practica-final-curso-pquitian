@@ -1,27 +1,325 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`App renders correctly 1`] = `
-<div
-  class="App"
->
-  <header
-    class="App-header"
+<App>
+  <Provider
+    store={
+      Object {
+        "dispatch": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+        Symbol(observable): [Function],
+      }
+    }
   >
-    <p>
-      Edit 
-      <code>
-        src/App.js
-      </code>
-       and save to reload.
-    </p>
-    <a
-      class="App-link"
-      href="https://reactjs.org"
-      rel="noopener noreferrer"
-      target="_blank"
-    >
-      Learn React
-    </a>
-  </header>
-</div>
+    <DataProvider>
+      <BrowserRouter>
+        <Router
+          history={
+            Object {
+              "action": "POP",
+              "block": [Function],
+              "createHref": [Function],
+              "go": [Function],
+              "goBack": [Function],
+              "goForward": [Function],
+              "length": 1,
+              "listen": [Function],
+              "location": Object {
+                "hash": "",
+                "pathname": "/",
+                "search": "",
+                "state": undefined,
+              },
+              "push": [Function],
+              "replace": [Function],
+            }
+          }
+        >
+          <Connect(NavBar)>
+            <NavBar
+              dispatch={[Function]}
+              isLogged={false}
+              name=""
+            >
+              <nav>
+                <div
+                  class="ui inverted segment"
+                >
+                  <div
+                    class="ui inverted secondary menu"
+                  >
+                    <NavLink
+                      activeClassName="active"
+                      className="item"
+                      exact={true}
+                      to="/"
+                    >
+                      <Link
+                        aria-current="page"
+                        className="item active"
+                        style={Object {}}
+                        to={
+                          Object {
+                            "hash": "",
+                            "pathname": "/",
+                            "search": "",
+                            "state": null,
+                          }
+                        }
+                      >
+                        <LinkAnchor
+                          aria-current="page"
+                          className="item active"
+                          href="/"
+                          navigate={[Function]}
+                          style={Object {}}
+                        >
+                          <a
+                            aria-current="page"
+                            className="item active"
+                            href="/"
+                            onClick={[Function]}
+                            style={Object {}}
+                          >
+                            Inicio
+                          </a>
+                        </LinkAnchor>
+                      </Link>
+                    </NavLink>
+                    <NavLink
+                      activeClassName="active"
+                      className="item"
+                      isActive={[Function]}
+                      to="/user"
+                    >
+                      <Link
+                        aria-current={null}
+                        className="item"
+                        to={
+                          Object {
+                            "hash": "",
+                            "pathname": "/user",
+                            "search": "",
+                            "state": null,
+                          }
+                        }
+                      >
+                        <LinkAnchor
+                          aria-current={null}
+                          className="item"
+                          href="/user"
+                          navigate={[Function]}
+                        >
+                          <a
+                            aria-current={null}
+                            className="item"
+                            href="/user"
+                            onClick={[Function]}
+                          >
+                            Perfil
+                          </a>
+                        </LinkAnchor>
+                      </Link>
+                    </NavLink>
+                    <NavLink
+                      activeClassName="active"
+                      className="item"
+                      to="/albumes"
+                    >
+                      <Link
+                        aria-current={null}
+                        className="item"
+                        to={
+                          Object {
+                            "hash": "",
+                            "pathname": "/albumes",
+                            "search": "",
+                            "state": null,
+                          }
+                        }
+                      >
+                        <LinkAnchor
+                          aria-current={null}
+                          className="item"
+                          href="/albumes"
+                          navigate={[Function]}
+                        >
+                          <a
+                            aria-current={null}
+                            className="item"
+                            href="/albumes"
+                            onClick={[Function]}
+                          >
+                            Álbumes
+                          </a>
+                        </LinkAnchor>
+                      </Link>
+                    </NavLink>
+                    <div
+                      class="right menu"
+                    />
+                  </div>
+                </div>
+              </nav>
+            </NavBar>
+          </Connect(NavBar)>
+          <div
+            className="App"
+          >
+            <Switch>
+              <Route
+                component={
+                  Object {
+                    "$$typeof": Symbol(react.memo),
+                    "WrappedComponent": [Function],
+                    "compare": null,
+                    "displayName": "Connect(Home)",
+                    "type": [Function],
+                    Symbol(Symbol.hasInstance): [Function],
+                  }
+                }
+                computedMatch={
+                  Object {
+                    "isExact": true,
+                    "params": Object {},
+                    "path": "/",
+                    "url": "/",
+                  }
+                }
+                exact={true}
+                location={
+                  Object {
+                    "hash": "",
+                    "pathname": "/",
+                    "search": "",
+                    "state": undefined,
+                  }
+                }
+                path="/"
+              >
+                <Connect(Home)
+                  history={
+                    Object {
+                      "action": "POP",
+                      "block": [Function],
+                      "createHref": [Function],
+                      "go": [Function],
+                      "goBack": [Function],
+                      "goForward": [Function],
+                      "length": 1,
+                      "listen": [Function],
+                      "location": Object {
+                        "hash": "",
+                        "pathname": "/",
+                        "search": "",
+                        "state": undefined,
+                      },
+                      "push": [Function],
+                      "replace": [Function],
+                    }
+                  }
+                  location={
+                    Object {
+                      "hash": "",
+                      "pathname": "/",
+                      "search": "",
+                      "state": undefined,
+                    }
+                  }
+                  match={
+                    Object {
+                      "isExact": true,
+                      "params": Object {},
+                      "path": "/",
+                      "url": "/",
+                    }
+                  }
+                >
+                  <Home
+                    albums={
+                      Object {
+                        "albums": Array [],
+                        "error": false,
+                        "isLoading": true,
+                      }
+                    }
+                    getAlbums={[Function]}
+                    getSongs={[Function]}
+                    history={
+                      Object {
+                        "action": "POP",
+                        "block": [Function],
+                        "createHref": [Function],
+                        "go": [Function],
+                        "goBack": [Function],
+                        "goForward": [Function],
+                        "length": 1,
+                        "listen": [Function],
+                        "location": Object {
+                          "hash": "",
+                          "pathname": "/",
+                          "search": "",
+                          "state": undefined,
+                        },
+                        "push": [Function],
+                        "replace": [Function],
+                      }
+                    }
+                    location={
+                      Object {
+                        "hash": "",
+                        "pathname": "/",
+                        "search": "",
+                        "state": undefined,
+                      }
+                    }
+                    match={
+                      Object {
+                        "isExact": true,
+                        "params": Object {},
+                        "path": "/",
+                        "url": "/",
+                      }
+                    }
+                    songs={
+                      Object {
+                        "error": false,
+                        "isLoading": true,
+                        "songs": Array [],
+                      }
+                    }
+                    user={
+                      Object {
+                        "albumsHistory": Array [],
+                        "isLogged": false,
+                        "name": "",
+                        "songsHistory": Array [],
+                      }
+                    }
+                  >
+                    <Loading>
+                      <Loader
+                        active={true}
+                        content="Cargando..."
+                        inline="centered"
+                      >
+                        <div
+                          className="ui active text centered inline loader"
+                        >
+                          Cargando...
+                        </div>
+                      </Loader>
+                    </Loading>
+                  </Home>
+                </Connect(Home)>
+              </Route>
+            </Switch>
+          </div>
+        </Router>
+      </BrowserRouter>
+    </DataProvider>
+  </Provider>
+</App>
 `;
