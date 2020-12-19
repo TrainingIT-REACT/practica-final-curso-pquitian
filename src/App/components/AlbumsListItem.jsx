@@ -9,7 +9,7 @@ const AlbumsListItem = (props) => {
     const { album } = props;
     
     return (
-        <Card raised>
+        <Card raised className="Album">
             <a href={`album/${album.id}`}>
                 <Image src={album.cover} wrapped ui={true}/>
             </a>

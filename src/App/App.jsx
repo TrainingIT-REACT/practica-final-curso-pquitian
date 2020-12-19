@@ -35,7 +35,6 @@ const ReactApp = (props) => {
   }, []);
 
   return (
-    
       <Router>
         <NavBar/>
         <div className="App">
@@ -49,7 +48,6 @@ const ReactApp = (props) => {
           </Switch>
         </div>
       </Router>
-    
   );
 
 };
