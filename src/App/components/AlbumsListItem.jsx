@@ -9,15 +9,19 @@ const AlbumsListItem = (props) => {
     const { album } = props;
     
     return (
-        <Link to={`album/${album.id}`}>
-            <Card raised>
+        <Card raised>
+            <Link to={`album/${album.id}`}>
                 <Image src={album.cover} wrapped ui={true}/>
-                <Card.Content>
-                    <Card.Header>{album.name}</Card.Header>
-                    <Card.Meta>{album.artist}</Card.Meta>
-                </Card.Content>
-            </Card>
-        </Link>
+            </Link>
+            <Card.Content>
+            <Link to={`album/${album.id}`}>
+                <Card.Header>{album.name}</Card.Header>
+                <Card.Meta>{album.artist}</Card.Meta>
+                </Link>
+            </Card.Content>
+            
+        </Card>
+        
     );
 };
 
