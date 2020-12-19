@@ -10,14 +10,14 @@ const AlbumsListItem = (props) => {
     
     return (
         <Card raised className="Album">
-            <Link to={`album/${album.id}`}>
+            <a href={`album/${album.id}`}>
                 <Image src={album.cover} wrapped ui={true}/>
-            </Link>
+            </a>
             <Card.Content>
-            <Link to={`album/${album.id}`}>
+            <a href={`album/${album.id}`}>
                 <Card.Header>{album.name}</Card.Header>
                 <Card.Meta>{album.artist}</Card.Meta>
-                </Link>
+            </a>
             </Card.Content>
             
         </Card>
