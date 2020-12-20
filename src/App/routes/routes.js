@@ -3,7 +3,8 @@ const ROUTES = {
     ALBUMS: "/albumes",
     ALBUM_DETAIL: "/album/:id",
     USER_PROFILE: "/user",
-    LOGIN: "/login"
+    LOGIN: "/login",
+    SONG: "/song/:id"
 };
 
 export { ROUTES };

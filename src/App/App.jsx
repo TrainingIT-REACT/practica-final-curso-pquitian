@@ -10,6 +10,7 @@ import NotFound from './views/NotFound';
 import Album from './views/Album';
 import UserProfile from './views/UserProfile';
 import Login from './views/Login';
+import Song from './views/Song';
 
 // Other
 import { ROUTES } from './routes/routes';
@@ -21,7 +22,6 @@ import NavBar from './components/NavBar';
 // Actions 
 import { getSongs } from '../actions/songs';
 import { getAlbums } from '../actions/albums';
-import { getUser } from '../actions/user';
 
 // Css
 import './App.css';
@@ -46,6 +46,7 @@ const ReactApp = (props) => {
             <Route path={ROUTES.ALBUMS} exact component={Albums}/>
             <Route path={ROUTES.ALBUM_DETAIL} component={Album}/>
             <Route path={ROUTES.LOGIN} exact component={Login}/>
+            <Route path={ROUTES.SONG} exact component={Song} />
             <PrivateRoute path={ROUTES.USER_PROFILE} component={UserProfile}/>
             <Route component={NotFound}/>
           </Switch>

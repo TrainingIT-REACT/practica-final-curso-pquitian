@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Header } from 'semantic-ui-react';
 
 // Components
-import AlbumSong from './AlbumSong';
+import SongPlayer from './SongPlayer';
 
 const formatDuration = (sec) => {
     if (!sec || sec < 60) return;
@@ -33,7 +33,10 @@ const AlbumDetail = (props) => {
         <p>{formatDuration(duration)}</p>
         <Header as='h3'>Temas del álbum</Header>   
         {tracklist.map((song, i) => {
-            return <AlbumSong key={i} song={song}/>
+            return <>
+                <p>{song.name}</p>
+                <SongPlayer key={i} song={song}/>
+                </>
         })}
         </>
 };

@@ -17,7 +17,6 @@ const AlbumSong = ({song, updateListeningHistory, isLogged}) => {
 
 
     return <>
-        <p>{song.name}</p>
         <audio src={song.audio} controls="controls" type="audio/mpeg" onPlay={handleAudioOnClick} preload="preload">
         </audio>
     </>

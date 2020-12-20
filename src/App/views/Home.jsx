@@ -24,7 +24,7 @@ const Home = (props) => {
                 <Header.Subheader>Basado en las preferencias del resto de usuarios</Header.Subheader>
             </Header>
             <Suspense fallback={Loading}>
-                <MusicRecommender {...{songs, albums}} pathName="album"></MusicRecommender>
+                <MusicRecommender {...{songs, albums}} pathName="song"></MusicRecommender>
             </Suspense>
         </>
     );
