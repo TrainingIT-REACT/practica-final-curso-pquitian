@@ -11,7 +11,11 @@ import { ROUTES } from '../routes/routes';
 import LoginForm from '../components/LoginForm';
 import FeedbackMessage from '../components/FeedbackMessage';
 
-const Login = ({ isLogged, logUser, location }) => {
+const Login = (props) => {
+
+    const { logUser, location } = props;
+    const userProfile = props.user;
+
     const errorMessage = location.state && location.state.errorMessage || null;
 
     const handleOnSubmitLoginForm = (user) => {
@@ -34,14 +38,14 @@ const Login = ({ isLogged, logUser, location }) => {
     );
 
     return (
-    isLogged ? redirectToUserProfile()
+    userProfile.isLogged ? redirectToUserProfile()
     : renderLoginForm()
     );
 };
 
 const mapStateToProps = (state) => {
     return {
-        isLogged: state.user.isLogged
+        ...state
     }
 };
 
