@@ -12,12 +12,13 @@ const Home = (props) => {
 
     const { error, songs } = props.songs;
     const { isLoading, albums } = props.albums;
+    const { name } = props.user;
 
     const renderError = () => <FeedbackMessage negative message='Hubo un error al cargar los datos'>Vuelve a intentarlo</FeedbackMessage>;
     const renderLoader = () => <Loading/>;
     const renderHomeView = () => (
         <>
-            <Header as="h1">¡Hola!</Header>
+            <Header as="h1">¡Hola{ name ? ` ${name}`: ''}!</Header>
             <Header as="h2">
                 Canciones recomendadas
                 <Header.Subheader>Basado en las preferencias del resto de usuarios</Header.Subheader>
