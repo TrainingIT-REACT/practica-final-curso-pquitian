@@ -23,7 +23,9 @@ const getRecommendedSongs = (songs) => {
     return recommendations;
 };
 
-const HomeCard = ({ albums, songs, pathName, children }) => {
+const MusicRecommender = ({ albums, songs, pathName, children }) => {
+
+    // TODO: improve this code and split in components
 
     const [recommendedSongs, setRecommendedSongs] = useState([]);
 
@@ -60,4 +62,4 @@ const HomeCard = ({ albums, songs, pathName, children }) => {
     );
 };
 
-export default HomeCard;
+export default MusicRecommender;
