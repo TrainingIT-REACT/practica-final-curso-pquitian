@@ -1,3 +1,5 @@
+/* eslint-env page */
+
 describe("App", () => {
     beforeEach(async() => {
         await page.goto('http://localhost:3000/')

@@ -43,7 +43,6 @@ const Album = (props) => {
 
     useEffect(() => {
         const albumTrackList = getAlbumTracklist(songs);
-        console.log(albumTrackList);
         setTracklist(albumTrackList);
     }, [album, songs]);
 

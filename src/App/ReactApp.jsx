@@ -21,14 +21,11 @@ import NavBar from './components/NavBar';
 // Actions 
 import { getSongs } from '../actions/songs';
 import { getAlbums } from '../actions/albums';
-import { getUser } from '../actions/user';
 
 // Css
 import './App.css';
 
 const ReactApp = (props) => {
-
-  console.log(props);
 
   const { getAlbums, getSongs } = props;
 

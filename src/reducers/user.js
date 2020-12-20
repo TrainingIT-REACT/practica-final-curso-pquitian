@@ -11,7 +11,6 @@ const reducer = (state = initialState, action) => {
     const removeFromHistoryIfPresent = (song) => {
         const history = [...state.songsHistory];
         const isPresent = history.find(item => {
-            console.log(item);
             return item.id === song.id;
         }) || false;
         const removeFromHistory = () => {
